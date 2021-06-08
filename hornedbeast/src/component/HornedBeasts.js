@@ -1,30 +1,38 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card';
+//import CardColums from 'react-bootstrap/CardColums';
 
-
-class HornedBeasts extends React.Component {
-    render() {
-        return (
-
-            <div className='horn'>
-
-                <h2>{this.props.title} </h2>
-                <p>{this.props.description}</p>
-                <img src={this.props.url} alt={this.props.alter} />
-                <img src={this.props.url} alt={this.props.alter} />
-                <img src={this.props.url} alt={this.props.alter} />
-            </div>
-
-
-        );
-
-
-
+import Col from 'react-bootstrap/Col';
+import 'bootstrap/dist/css/bootstrap.min.css';
+class HornedBeast extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      vote: 0
     }
-
-
-
-
-
+  }
+  votes = () => {
+    let x = this.state.vote;
+    x++;
+    this.setState({ vote: x });
+  }
+  render() {
+    return (
+      <Col>
+        <Card style={{ width: "18rem" }} className="box">
+          <Card.Img
+            onClick={this.votes}
+            variant="top"
+            src={this.props.image_url}
+          />
+          <Card.Body>
+            <Card.Title>{this.props.title}</Card.Title>
+            <Card.Text>{this.props.description}</Card.Text>
+            <Card.Text> &#10084;&#65039;{this.state.vote}</Card.Text>
+          </Card.Body>
+        </Card>
+      </Col>
+    );
+  }
 }
-
-export default HornedBeasts;
+export default HornedBeast;
