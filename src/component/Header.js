@@ -1,11 +1,12 @@
 import React from 'react';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 class Header extends React.Component {
     render() {
         return (
-            //  <div className='Header' >
+              <header className="jumbotron text-center" >
+                  
             <h1> Firist Animal </h1>
-            //</div>
+            </header>
         );
 
     }
