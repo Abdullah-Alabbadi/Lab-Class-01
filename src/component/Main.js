@@ -5,15 +5,15 @@ import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
 class Main extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = {
-      hornsForm: 99
+        super(props);
+        this.state = {
+          hornsForm: 99
+        }
     }
-  }
-  filterImg = (e) => {
-    e.preventDefault();
-    this.setState({ hornsForm: e.target.value });
-  }
+filterImg = (e) => {
+  e.preventDefault();
+ this.setState({hornsForm : e.target.value}) ;
+}
   render() {
     return (
       <main>
@@ -36,21 +36,21 @@ class Main extends React.Component {
           {data.map((val, index) => {
             return (
              <> {
-               this.state.hornsForm == val.horns &&
+               (this.state.hornsForm == val.horns &&
                 <HornedBeast
                 title={val.title}
                 description={val.description}
                 image_url={val.image_url}
                 horns={val.horns}
                 key={index}
-              /> || this.state.hornsForm == 99 &&   <HornedBeast
+              />) || (this.state.hornsForm == 99 &&   <HornedBeast
               title={val.title}
               description={val.description}
               image_url={val.image_url}
               horns={val.horns}
               key={index}
             />
-              }
+              )}
               </>
             )
           })}
