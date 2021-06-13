@@ -11,7 +11,7 @@ class HornedBeast extends React.Component {
     }
   }
   votes = () => {
-    this.setState({ vote:++this.state.vote });
+    this.setState({ vote:++this.setState.vote });
     this.setState({ showImg: true });
   }
 close=() =>{
