@@ -7,7 +7,7 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hornsForm: 0
+      hornsForm: 99
     }
   }
   filterImg = (e) => {
@@ -17,14 +17,14 @@ class Main extends React.Component {
   render() {
     return (
       <main>
-        <Form className="form" >
+         <Form className="form" >
           <Form.Group controlId="select">
             <select
               onChange={(e) => this.filterImg(e)}
               aria-label="Default select example"
             >
               <option>Select Number Of Horns</option>
-              <option value="0">All HorndBeast </option>
+              <option value="99">All HorndBeast </option>
               <option value="1">One horn</option>
               <option value="2">Two horns</option>
               <option value="3">Three horns </option>
@@ -35,21 +35,21 @@ class Main extends React.Component {
         <Row xs={1} md={3} className="g-4">
           {data.map((val, index) => {
             return (
-              <> {
-                this.state.hornsForm === val.horns &&
+             <> {
+               this.state.hornsForm == val.horns &&
                 <HornedBeast
-                  title={val.title}
-                  description={val.description}
-                  image_url={val.image_url}
-                  horns={val.horns}
-                  key={index}
-                /> || this.state.hornsForm === 0 && <HornedBeast
-                  title={val.title}
-                  description={val.description}
-                  image_url={val.image_url}
-                  horns={val.horns}
-                  key={index}
-                />
+                title={val.title}
+                description={val.description}
+                image_url={val.image_url}
+                horns={val.horns}
+                key={index}
+              /> || this.state.hornsForm == 99 &&   <HornedBeast
+              title={val.title}
+              description={val.description}
+              image_url={val.image_url}
+              horns={val.horns}
+              key={index}
+            />
               }
               </>
             )
